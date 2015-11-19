@@ -3,6 +3,31 @@ TEI HTML Converter
 
 Converts HTML to TEI through your own specifications !
 
+## How to ?
+
+```html
+ <script src="../../../src/tei_witness.js"></script>
+ <script type="text/javascript">
+  $("#html-element").TEIWitness({
+    //Options here !
+  });
+ </script>
+```
+
+### Params of `TEIWitness(options)`
+
+* **object** *options.conversion* Conversion table
+* **string** *options.conversion[key]* key should represent a css selector while value should be a valid TEI XML element OR
+* **string** *options.conversion[key].tag* Tag to convert to
+* **string** *options.conversion[key][@att]* Name of the attribute preceded by @ as key, corresponding attribute name in XML TEI
+* **callback** *options.conversion[key][@att].cb* If options.conversion[key][@att] is an object, cb should be a function returning a string, given the current element as value
+* **string** *options.conversion[key][@att].name* Name of the new attr
+* **Array** *options.extract* List of nodes to extract from their parents (be careful, nodes have already been transformed)
+* **Array** *options.remove* Attributes and nodes to remove by default (Start with @ for attribute)
+* **string** *options.filename* Filename to be exported too
+* **string** *options.prefix* Stuff to prepend before the export
+* **string** *options.suffix* Stuff to append after the exported
+
 Example
 ```javascript
 $("#witness-content").TEIWitness({

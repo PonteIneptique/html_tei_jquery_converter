@@ -15,7 +15,7 @@
        * 
        * @function
        * @name download
-       * @source http://stackoverflow.com/questions/3665115/create-a-file-in-memory-for-user-to-download-not-through-server
+       * @see http://stackoverflow.com/questions/3665115/create-a-file-in-memory-for-user-to-download-not-through-server
        * 
        * @param  {string}     filename           Filename to use for download
        * @param  {text}       text               Text to input in the download form
@@ -45,8 +45,8 @@
        * @param  {string}     options.conversion[key][@att]        Name of the attribute preceded by @ as key, corresponding attribute name in XML TEI
        * @param  {callback}   options.conversion[key][@att].cb     If options.conversion[key][@att] is an object, cb should be a function returning a string, given the current element as value
        * @param  {string}     options.conversion[key][@att].name   Name of the new attr
-       * @param  {[string]}   options.extract                      List of nodes to extract from their parents (be careful, nodes have already been transformed)
-       * @param  {[string]}   options.remove                       Attributes and nodes to remove by default (Start with @ for attribute)
+       * @param  {Array}      options.extract                      List of nodes to extract from their parents (be careful, nodes have already been transformed)
+       * @param  {Array}      options.remove                       Attributes and nodes to remove by default (Start with @ for attribute)
        * @param  {string}     options.filename                     Filename to be exported too
        * @param  {string}     options.prefix                       Stuff to prepend before the export
        * @param  {string}     options.suffix                       Stuff to append after the export
@@ -77,17 +77,7 @@
                 new_attr = value;
             delete new_attr.tag;
           }
-          var elements;
-
-          /*if(key.endsWith(":visible")) {
-            var key = key.replace(":visible", "")
-            elements = $element.find(key).filter(":visible");*/
-          //} else {
-            var elements = $element.find(key);
-          //}
-
-          // For each element
-          elements.each(function() {
+          $element.find(key).each(function() {
 
             //Retrieve current attribute
             var attr  = this.attributes,
