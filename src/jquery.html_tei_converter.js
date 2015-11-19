@@ -1,10 +1,10 @@
 /**
  * @requires jQuery
  * 
- * @link https://github.com/PonteIneptique/TEIWitness
+ * @link https://github.com/PonteIneptique/jquery_html_tei_converter
  * @author PonteIneptique (Thibault Clérice)
  * @version 0.0.1
- * @license https://github.com/PonteIneptique/TEIWitness/blob/master/LICENSE
+ * @license https://github.com/PonteIneptique/jquery_html_tei_converter/blob/master/LICENSE
  *
  */
 (function ( $ ) {
@@ -33,7 +33,7 @@
       document.body.removeChild(element);
     } 
 
-    $.fn.TEIWitness = function(options) {
+    $.fn.HTML2TEI_Converter = function(options) {
       /**
        * Generate XML-TEI from a HTML container
        * 

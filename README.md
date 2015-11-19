@@ -6,15 +6,15 @@ Converts HTML to TEI through your own specifications !
 ## How to ?
 
 ```html
- <script src="../../../src/tei_witness.js"></script>
+ <script src="../../../src/jquery.html_tei_converter.js"></script>
  <script type="text/javascript">
-  $("#html-element").TEIWitness({
+  $("#html-element").HTML2TEI_Converter({
     //Options here !
   });
  </script>
 ```
 
-### Params of `TEIWitness(options)`
+### Params of `HTML2TEI_Converter(options)`
 
 * **object** *options.conversion* Conversion table
 * **string** *options.conversion[key]* key should represent a css selector while value should be a valid TEI XML element OR
@@ -30,7 +30,7 @@ Converts HTML to TEI through your own specifications !
 
 ### Example
 ```javascript
-$("#witness-content").TEIWitness({
+$("#witness-content").HTML2TEI_Converter({
       "conversion" : {
         // Transform h1 and h2 to head
         "h1, h2": "head", 
