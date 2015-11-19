@@ -28,15 +28,18 @@ Converts HTML to TEI through your own specifications !
 * **string** *options.prefix* Stuff to prepend before the export
 * **string** *options.suffix* Stuff to append after the exported
 
-Example
+### Example
 ```javascript
 $("#witness-content").TEIWitness({
       "conversion" : {
-        "h1, h2": "head",
+        // Transform h1 and h2 to head
+        "h1, h2": "head", 
         "li" : "l",
         "ol": "lg",
+        //Transform these tags to w
         "span.norm, span.word.choice:visible": {
           "tag": "w",
+          //Add an attribute id using a callback
           "@id": {
             name: "xml:id",
             cb: function(current) {
@@ -49,7 +52,9 @@ $("#witness-content").TEIWitness({
           }
         }
       },
+      // Replace the parent of `span.choice-apparatus w` by w
       "extract": ["span.choice-apparatus w"],
+      // Remove the following attributes and nodes
       "remove": ["@class", "@style", "@data-source", "span", "@data-original-title", "@data-title", "@title"],
       "prepend" : `<?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
